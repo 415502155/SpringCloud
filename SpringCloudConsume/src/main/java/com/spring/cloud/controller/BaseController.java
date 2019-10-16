@@ -1,4 +1,4 @@
-0package com.spring.cloud.controller;
+package com.spring.cloud.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
