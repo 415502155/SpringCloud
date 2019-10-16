@@ -1,4 +1,4 @@
-package com.spring.cloud.controller;
+0package com.spring.cloud.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +14,6 @@ public class BaseController {
     @RequestMapping(value = "/consumer",method = RequestMethod.GET)
     public String helloController() {
     	
-        return restTemplate.getForEntity("http://SpringCloudServer/getinfo", String.class).getBody();
+        return restTemplate.getForEntity("http://cloud-server/getinfo", String.class).getBody();
     }
 }
