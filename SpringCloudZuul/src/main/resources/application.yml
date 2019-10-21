@@ -1,0 +1,41 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: zuul-server
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka
+    #健康检查（需要spring-boot-starter-actuator依赖）
+    healthcheck:
+      enabled: true
+  instance:
+    # 人性化显示出服务的信息
+    instance-id: zuul-server
+    # 访问路径可显示ip地址
+    prefer-ip-address: true  
+    # 续约更新时间间隔（默认30秒）
+    lease-renewal-interval-in-seconds: 10
+    # 续约到期时间（默认90秒）
+    lease-expiration-duration-in-seconds: 10
+#zuul代理配置 zuul.routes.服务名.path,服务名要与注册的一致
+zuul:
+  routes:
+    cloud-server: /cloud-server/**
+  host:
+    connect-timeout-millis: 15000
+    socket-timeout-millis: 60000
+ribbon:  
+  ReadTimeout: 15000
+  ConnectTimeout: 15000
+hystrix:
+    command:
+        default:
+            execution:
+                isolation:
+                    thread:
+                        timeout-in-milliseconds: 10000
+feign:
+  hystrix:
+    enabled: true
