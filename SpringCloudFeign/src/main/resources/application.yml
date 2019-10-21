@@ -2,7 +2,6 @@ server:
   port: 8090
   tomcat:
     uri-encoding: utf-8
-      
 eureka:
   client:
   #是否将自己注册到Eureka服务中
@@ -12,8 +11,11 @@ eureka:
     #Eureka注册中心的地址
     service-url:
       defaultZone: http://127.0.0.1:8761/eureka
-
 spring:
   application:
     #服务名称
     name: cloud-feign
+#代表开启熔断器：提示Unknown property 'feign',但是不写熔断器不起作用
+feign:
+  hystrix:
+    enabled: true
