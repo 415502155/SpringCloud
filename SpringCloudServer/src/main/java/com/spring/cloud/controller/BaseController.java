@@ -40,7 +40,8 @@ public class BaseController {
 		user.setCreate_time(new Date());
 		user.setIs_del(0);
 		String info = JSON.toJSONString(user);
-		log.info("获取用户信息 》》》》：" + info);
+		//log.info("访问服务端口号：" + getServerPort() + ", 获取用户信息 ：" + info);
+		info = "访问服务端口号：" + getServerPort() + ", 获取用户信息 ：" + info;
 		return info;
 	}
 	
